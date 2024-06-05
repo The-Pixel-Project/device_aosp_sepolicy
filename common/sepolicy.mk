@@ -39,6 +39,14 @@ ifeq ($(TARGET_INCLUDE_PIXEL_SEPOLICY), true)
 BOARD_SEPOLICY_DIRS += \
     device/custom/sepolicy/common/private/google
 
+ifeq ($(TARGET_USES_PREBUILT_VENDOR_SEPOLICY), true)
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += \
+    device/custom/sepolicy/common/system/google
+else
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/custom/sepolicy/common/vendor/google
+endif
+
 # Flipendo
 BOARD_SEPOLICY_DIRS += \
     hardware/google/pixel-sepolicy/flipendo
